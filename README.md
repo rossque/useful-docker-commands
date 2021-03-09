@@ -27,3 +27,9 @@ docker run -t -d --name dockerhub-php-fpm-7.4 php:7.4-fpm
 docker exec -it dockerhub-php-fpm-7.4 bash
 php -m
 ```
+### Return IP address for 'nginx' container
+Replace **nginx** with the container name that you want to find an IP address for.
+``` shell
+IP=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nginx);
+printf $IP
+```
