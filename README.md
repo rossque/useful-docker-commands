@@ -21,6 +21,12 @@ docker network rm $(docker network ls --filter name=_local -q)
 ``` shell
 docker kill $(docker ps -q)
 ```
+### Remove all stroped and unused containers
+remove any stopped containers and all unused images (not just dangling images), add the -a flag to the command:
+``` shell
+docker system prune -a
+```
+
 ### SSH into existing docker build
 ``` shell
 docker run -t -d --name dockerhub-php-fpm-7.4 php:7.4-fpm
