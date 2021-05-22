@@ -42,6 +42,8 @@ printf $IP
 
 # Docker API
 
+For these API's we are using `jq`. You can install this by running `brew install jq`.
+
 Listen for events
 ``` shell
 curl --no-buffer --unix-socket /var/run/docker.sock http://localhost/events
@@ -49,7 +51,7 @@ curl --no-buffer --unix-socket /var/run/docker.sock http://localhost/events
 
 Images
 ``` shell
-curl --unix-socket /var/run/docker.sock http://localhost/images/json | cat
+curl --unix-socket /var/run/docker.sock http://localhost/images/json | jq
 ```
 
 Containers
