@@ -40,6 +40,12 @@ IP=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}'
 printf $IP
 ```
 
+### Reload a service within container
+For this example we are connecting to the nginx container and reloading the nginx service.
+``` shell
+docker exec -it nginx nginx -s reload
+```
+
 # Docker API
 
 For these API's we are using `jq`. You can install this by running `brew install jq`.
