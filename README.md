@@ -39,3 +39,20 @@ Replace **nginx** with the container name that you want to find an IP address fo
 IP=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nginx);
 printf $IP
 ```
+
+# Docker API
+
+Listen for events
+``` shell
+curl --no-buffer --unix-socket /var/run/docker.sock http://localhost/events
+```
+
+Images
+``` shell
+curl --unix-socket /var/run/docker.sock http://localhost/images/json | cat
+```
+
+Containers
+``` shell
+curl --unix-socket /var/run/docker.sock http://localhost/containers/json | jq
+```
