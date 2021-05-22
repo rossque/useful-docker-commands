@@ -45,22 +45,3 @@ For this example we are connecting to the nginx container and reloading the ngin
 ``` shell
 docker exec -it nginx nginx -s reload
 ```
-
-# Docker API
-
-For these API's we are using `jq`. You can install this by running `brew install jq`.
-
-Listen for events
-``` shell
-curl --no-buffer --unix-socket /var/run/docker.sock http://localhost/events
-```
-
-Images
-``` shell
-curl --unix-socket /var/run/docker.sock http://localhost/images/json | jq
-```
-
-Containers
-``` shell
-curl --unix-socket /var/run/docker.sock http://localhost/containers/json | jq
-```
